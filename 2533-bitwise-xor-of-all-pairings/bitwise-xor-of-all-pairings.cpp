@@ -1,20 +1,22 @@
 class Solution {
 public:
     int xorAllNums(vector<int>& nums1, vector<int>& nums2) {
-        int c1 = nums1.size();
-        int c2 = nums2.size();
-        int x1 = 0, x2 = 0;
-        
-        if (c1 % 2 != 0) {
+        int result = 0;
+
+        // XOR all elements of nums2 if nums1 size is odd
+        if (nums1.size() % 2 != 0) {
             for (int num : nums2) {
-                x2 ^= num;
+                result ^= num;
             }
         }
-        if (c2 % 2 != 0) {
+
+        // XOR all elements of nums1 if nums2 size is odd
+        if (nums2.size() % 2 != 0) {
             for (int num : nums1) {
-                x1 ^= num;
+                result ^= num;
             }
         }
-        return x1 ^ x2;
+
+        return result;
     }
 };
